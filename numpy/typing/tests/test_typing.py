@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pathlib
 import importlib.util
 import itertools
 import os
@@ -30,11 +31,17 @@ if TYPE_CHECKING:
     # As a compromise, do *not* import it during runtime
     from _pytest.mark.structures import ParameterSet
 
+# NOTE: Mypy can have issues when running it directly over site-packages;
+# run it over the numpy source instead (xref python/mypy#11477)
+SRC_DATA_DIR = (
+    pathlib.Path(__file__).parents[8] / "numpy" / "typing" / "tests" / "data"
+)
+PASS_DIR = os.path.join(SRC_DATA_DIR, "pass")
+FAIL_DIR = os.path.join(SRC_DATA_DIR, "fail")
+REVEAL_DIR = os.path.join(SRC_DATA_DIR, "reveal")
+MISC_DIR = os.path.join(SRC_DATA_DIR, "misc")
+
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
-PASS_DIR = os.path.join(DATA_DIR, "pass")
-FAIL_DIR = os.path.join(DATA_DIR, "fail")
-REVEAL_DIR = os.path.join(DATA_DIR, "reveal")
-MISC_DIR = os.path.join(DATA_DIR, "misc")
 MYPY_INI = os.path.join(DATA_DIR, "mypy.ini")
 CACHE_DIR = os.path.join(DATA_DIR, ".mypy_cache")
 
