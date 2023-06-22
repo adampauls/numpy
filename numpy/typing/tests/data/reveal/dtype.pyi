@@ -19,9 +19,9 @@ reveal_type(np.dtype("bytes"))  # E: dtype[bytes_]
 reveal_type(np.dtype("str"))  # E: dtype[str_]
 
 # Python types
-reveal_type(np.dtype(complex))  # E: dtype[{cdouble}]
-reveal_type(np.dtype(float))  # E: dtype[{double}]
-reveal_type(np.dtype(int))  # E: dtype[{int_}]
+reveal_type(np.dtype(complex))  # E: dtype[complex_]
+reveal_type(np.dtype(float))  # E: dtype[float_]
+reveal_type(np.dtype(int))  # E: dtype[int_]
 reveal_type(np.dtype(bool))  # E: dtype[bool_]
 reveal_type(np.dtype(str))  # E: dtype[str_]
 reveal_type(np.dtype(bytes))  # E: dtype[bytes_]

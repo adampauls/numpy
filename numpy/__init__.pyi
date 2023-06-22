@@ -2884,17 +2884,37 @@ class signedinteger(integer[_NBit1]):
     __divmod__: _SignedIntDivMod[_NBit1]
     __rdivmod__: _SignedIntDivMod[_NBit1]
 
-int8 = signedinteger[_8Bit]
-int16 = signedinteger[_16Bit]
-int32 = signedinteger[_32Bit]
-int64 = signedinteger[_64Bit]
+class int8(signedInteger[_8Bit]):
+    ...
 
-byte = signedinteger[_NBitByte]
-short = signedinteger[_NBitShort]
-intc = signedinteger[_NBitIntC]
-intp = signedinteger[_NBitIntP]
-int_ = signedinteger[_NBitInt]
-longlong = signedinteger[_NBitLongLong]
+class int16(signedInteger[_16Bit]):
+    ...
+
+class int32(signedInteger[_32Bit]):
+    ...
+
+class int64(signedInteger[_64Bit]):
+    ...
+
+
+class byte(signedInteger[_NBitByte]):
+    ...
+
+class short(signedInteger[_NBitShort]):
+    ...
+
+class intc(signedInteger[_NBitIntC]):
+    ...
+
+class intp(signedInteger[_NBitIntP]):
+    ...
+
+class int_(signedInteger[_NBitInt]):
+    ...
+
+class longlong(signedInteger[_NBitLongLong]):
+    ...
+
 
 # TODO: `item`/`tolist` returns either `dt.timedelta` or `int`
 # depending on the unit
@@ -3039,16 +3059,34 @@ class floating(inexact[_NBit1]):
     __divmod__: _FloatDivMod[_NBit1]
     __rdivmod__: _FloatDivMod[_NBit1]
 
-float16 = floating[_16Bit]
-float32 = floating[_32Bit]
-float64 = floating[_64Bit]
+class float16(floating[_16Bit]):
+    ...
 
-half = floating[_NBitHalf]
-single = floating[_NBitSingle]
-double = floating[_NBitDouble]
-float_ = floating[_NBitDouble]
-longdouble = floating[_NBitLongDouble]
-longfloat = floating[_NBitLongDouble]
+class float32(floating[_32Bit]):
+    ...
+
+class float64(floating[_64Bit]):
+    ...
+
+
+class half(floating[_NBitHalf]):
+    ...
+
+class single(floating[_NBitSingle]):
+    ...
+
+class double(floating[_NBitDouble]):
+    ...
+
+class float_(floating[_NBitDouble]):
+    ...
+
+class longdouble(floating[_NBitLongDouble]):
+    ...
+
+class longfloat(floating[_NBitLongDouble]):
+    ...
+
 
 # The main reason for `complexfloating` having two typevars is cosmetic.
 # It is used to clarify why `complex128`s precision is `_64Bit`, the latter
@@ -3079,17 +3117,37 @@ class complexfloating(inexact[_NBit1], Generic[_NBit1, _NBit2]):
     __pow__: _ComplexOp[_NBit1]
     __rpow__: _ComplexOp[_NBit1]
 
-complex64 = complexfloating[_32Bit, _32Bit]
-complex128 = complexfloating[_64Bit, _64Bit]
+class complex64(complexfloating[_32Bit, _32Bit]):
+    ...
 
-csingle = complexfloating[_NBitSingle, _NBitSingle]
-singlecomplex = complexfloating[_NBitSingle, _NBitSingle]
-cdouble = complexfloating[_NBitDouble, _NBitDouble]
-complex_ = complexfloating[_NBitDouble, _NBitDouble]
-cfloat = complexfloating[_NBitDouble, _NBitDouble]
-clongdouble = complexfloating[_NBitLongDouble, _NBitLongDouble]
-clongfloat = complexfloating[_NBitLongDouble, _NBitLongDouble]
-longcomplex = complexfloating[_NBitLongDouble, _NBitLongDouble]
+class complex128(complexfloating[_64Bit, _64Bit]):
+    ...
+
+
+class csingle(complexfloating[_NBitSingle, _NBitSingle]):
+    ...
+
+class singlecomplex(complexfloating[_NBitSingle, _NBitSingle]):
+    ...
+
+class cdouble(complexfloating[_NBitDouble, _NBitDouble]):
+    ...
+
+class complex_(complexfloating[_NBitDouble, _NBitDouble]):
+    ...
+
+class cfloat(complexfloating[_NBitDouble, _NBitDouble]):
+    ...
+
+class clongdouble(complexfloating[_NBitLongDouble, _NBitLongDouble]):
+    ...
+
+class clongfloat(complexfloating[_NBitLongDouble, _NBitLongDouble]):
+    ...
+
+class longcomplex(complexfloating[_NBitLongDouble, _NBitLongDouble]):
+    ...
+
 
 class flexible(generic): ...  # type: ignore
 

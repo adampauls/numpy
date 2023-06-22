@@ -28,7 +28,7 @@ mt19937_raw_arr = mt19937.random_raw(5)
 reveal_type(mt19937_jumped)  # E: random._mt19937.MT19937
 reveal_type(mt19937_jumped3)  # E: random._mt19937.MT19937
 reveal_type(mt19937_raw)  # E: int
-reveal_type(mt19937_raw_arr)  # E: ndarray[Any, dtype[unsignedinteger[typing._64Bit]]]
+reveal_type(mt19937_raw_arr)  # E: ndarray[Any, dtype[uint64]]
 reveal_type(mt19937.lock)  # E: threading.Lock
 
 pcg64_jumped = pcg64.jumped()
