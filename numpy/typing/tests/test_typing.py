@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib.util
 import itertools
 import os
+import pathlib
 import re
 import shutil
 from collections import defaultdict
@@ -30,11 +31,17 @@ if TYPE_CHECKING:
     # As a compromise, do *not* import it during runtime
     from _pytest.mark.structures import ParameterSet
 
+# NOTE: Mypy can have issues when running it directly over site-packages;
+# run it over the numpy source instead (xref python/mypy#11477)
+SRC_DATA_DIR = (
+    pathlib.Path(__file__).parents[8] / "numpy" / "typing" / "tests" / "data"
+)
+PASS_DIR = os.path.join(SRC_DATA_DIR, "pass")
+FAIL_DIR = os.path.join(SRC_DATA_DIR, "fail")
+REVEAL_DIR = os.path.join(SRC_DATA_DIR, "reveal")
+MISC_DIR = os.path.join(SRC_DATA_DIR, "misc")
+
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
-PASS_DIR = os.path.join(DATA_DIR, "pass")
-FAIL_DIR = os.path.join(DATA_DIR, "fail")
-REVEAL_DIR = os.path.join(DATA_DIR, "reveal")
-MISC_DIR = os.path.join(DATA_DIR, "misc")
 MYPY_INI = os.path.join(DATA_DIR, "mypy.ini")
 CACHE_DIR = os.path.join(DATA_DIR, ".mypy_cache")
 
@@ -232,63 +239,52 @@ def _construct_format_dict() -> dict[str, str]:
            k, v in _PRECISION_DICT.items()}
 
     return {
-        "uint8": "numpy.unsignedinteger[numpy._typing._8Bit]",
-        "uint16": "numpy.unsignedinteger[numpy._typing._16Bit]",
-        "uint32": "numpy.unsignedinteger[numpy._typing._32Bit]",
-        "uint64": "numpy.unsignedinteger[numpy._typing._64Bit]",
-        "uint128": "numpy.unsignedinteger[numpy._typing._128Bit]",
-        "uint256": "numpy.unsignedinteger[numpy._typing._256Bit]",
-        "int8": "numpy.signedinteger[numpy._typing._8Bit]",
-        "int16": "numpy.signedinteger[numpy._typing._16Bit]",
-        "int32": "numpy.signedinteger[numpy._typing._32Bit]",
-        "int64": "numpy.signedinteger[numpy._typing._64Bit]",
-        "int128": "numpy.signedinteger[numpy._typing._128Bit]",
-        "int256": "numpy.signedinteger[numpy._typing._256Bit]",
-        "float16": "numpy.floating[numpy._typing._16Bit]",
-        "float32": "numpy.floating[numpy._typing._32Bit]",
-        "float64": "numpy.floating[numpy._typing._64Bit]",
-        "float80": "numpy.floating[numpy._typing._80Bit]",
-        "float96": "numpy.floating[numpy._typing._96Bit]",
-        "float128": "numpy.floating[numpy._typing._128Bit]",
-        "float256": "numpy.floating[numpy._typing._256Bit]",
-        "complex64": ("numpy.complexfloating"
-                      "[numpy._typing._32Bit, numpy._typing._32Bit]"),
-        "complex128": ("numpy.complexfloating"
-                       "[numpy._typing._64Bit, numpy._typing._64Bit]"),
-        "complex160": ("numpy.complexfloating"
-                       "[numpy._typing._80Bit, numpy._typing._80Bit]"),
-        "complex192": ("numpy.complexfloating"
-                       "[numpy._typing._96Bit, numpy._typing._96Bit]"),
-        "complex256": ("numpy.complexfloating"
-                       "[numpy._typing._128Bit, numpy._typing._128Bit]"),
-        "complex512": ("numpy.complexfloating"
-                       "[numpy._typing._256Bit, numpy._typing._256Bit]"),
+        "uint8": "numpy.uint8",
+        "uint16": "numpy.uint16",
+        "uint32": "numpy.uint32",
+        "uint64": "numpy.uint64",
+        "uint128": "numpy.uint128",
+        "uint256": "numpy.uint256",
+        "int8": "numpy.int8",
+        "int16": "numpy.int16",
+        "int32": "numpy.int32",
+        "int64": "numpy.int64",
+        "int128": "numpy.int128",
+        "int256": "numpy.int256",
+        "float16": "numpy.float16",
+        "float32": "numpy.float32",
+        "float64": "numpy.float64",
+        "float80": "numpy.float80",
+        "float96": "numpy.float96",
+        "float128": "numpy.float128",
+        "float256": "numpy.float256",
+        "complex64": "numpy.complex64",
+        "complex128": "numpy.complex128",
+        "complex160": "numpy.complex160",
+        "complex192": "numpy.complex192",
+        "complex256": "numpy.complex256",
+        "complex512": "numpy.complex512",
 
-        "ubyte": f"numpy.unsignedinteger[{dct['_NBitByte']}]",
-        "ushort": f"numpy.unsignedinteger[{dct['_NBitShort']}]",
-        "uintc": f"numpy.unsignedinteger[{dct['_NBitIntC']}]",
-        "uintp": f"numpy.unsignedinteger[{dct['_NBitIntP']}]",
-        "uint": f"numpy.unsignedinteger[{dct['_NBitInt']}]",
-        "ulonglong": f"numpy.unsignedinteger[{dct['_NBitLongLong']}]",
-        "byte": f"numpy.signedinteger[{dct['_NBitByte']}]",
-        "short": f"numpy.signedinteger[{dct['_NBitShort']}]",
-        "intc": f"numpy.signedinteger[{dct['_NBitIntC']}]",
-        "intp": f"numpy.signedinteger[{dct['_NBitIntP']}]",
-        "int_": f"numpy.signedinteger[{dct['_NBitInt']}]",
-        "longlong": f"numpy.signedinteger[{dct['_NBitLongLong']}]",
+        "ubyte": "numpy.ubyte",
+        "ushort": "numpy.ushort",
+        "uintc": "numpy.uintc",
+        "uintp": "numpy.uintp",
+        "uint": "numpy.uint",
+        "ulonglong": "numpy.ulonglong",
+        "byte": "numpy.byte",
+        "short": "numpy.short",
+        "intc": "numpy.intc",
+        "intp": "numpy.intp",
+        "int_": "numpy.int_",
+        "longlong": "numpy.longlong",
 
-        "half": f"numpy.floating[{dct['_NBitHalf']}]",
-        "single": f"numpy.floating[{dct['_NBitSingle']}]",
-        "double": f"numpy.floating[{dct['_NBitDouble']}]",
-        "longdouble": f"numpy.floating[{dct['_NBitLongDouble']}]",
-        "csingle": ("numpy.complexfloating"
-                    f"[{dct['_NBitSingle']}, {dct['_NBitSingle']}]"),
-        "cdouble": ("numpy.complexfloating"
-                    f"[{dct['_NBitDouble']}, {dct['_NBitDouble']}]"),
-        "clongdouble": (
-            "numpy.complexfloating"
-            f"[{dct['_NBitLongDouble']}, {dct['_NBitLongDouble']}]"
-        ),
+        "half": "numpy.half",
+        "single": "numpy.single",
+        "double": "numpy.double",
+        "longdouble": "numpy.longdouble",
+        "csingle": "numpy.csingle",
+        "cdouble": "numpy.cdouble",
+        "clongdouble":  "numpy.clongdouble",
 
         # numpy.typing
         "_NBitInt": dct['_NBitInt'],
