@@ -13,7 +13,7 @@ reveal_type(np.ndenumerate(AR_LIKE_f))  # E: ndenumerate[float_]
 reveal_type(np.ndenumerate(AR_LIKE_U))  # E: ndenumerate[str_]
 
 reveal_type(np.ndenumerate(AR_i8).iter)  # E: flatiter[ndarray[Any, dtype[{int64}]]]
-reveal_type(np.ndenumerate(AR_LIKE_f).iter)  # E: flatiter[ndarray[Any, dtype[{double}]]]
+reveal_type(np.ndenumerate(AR_LIKE_f).iter)  # E: flatiter[ndarray[Any, dtype[float_]]]
 reveal_type(np.ndenumerate(AR_LIKE_U).iter)  # E: flatiter[ndarray[Any, dtype[str_]]]
 
 reveal_type(next(np.ndenumerate(AR_i8)))  # E: tuple[builtins.tuple[builtins.int, ...], {int64}]

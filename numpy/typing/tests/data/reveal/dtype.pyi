@@ -36,7 +36,7 @@ reveal_type(np.dtype(ct.c_char))  # E: dtype[bytes_]
 reveal_type(np.dtype(ct.py_object))  # E: dtype[object_]
 
 # Special case for None
-reveal_type(np.dtype(None))  # E: dtype[{double}]
+reveal_type(np.dtype(None))  # E: dtype[float_]
 
 # Dtypes of dtypes
 reveal_type(np.dtype(np.dtype(np.float64)))  # E: dtype[{float64}]

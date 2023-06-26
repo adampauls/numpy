@@ -2,9 +2,12 @@
 
 import numpy as np
 
-def func1(a: str, b: int) -> None: ...
-def func2(a: str, b: int, c: float = ...) -> None: ...
-def func3(a: str, b: int) -> int: ...
+def func1(a: str, b: int) -> None:
+    return None
+def func2(a: str, b: int, c: float = ...) -> None:
+    return None
+def func3(a: str, b: int) -> int:
+    return None
 
 class Write1:
     def write(self, a: str) -> None: ...

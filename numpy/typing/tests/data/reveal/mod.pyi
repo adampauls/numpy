@@ -26,7 +26,7 @@ reveal_type(AR_m % td)  # E: Any
 reveal_type(td % AR_m)  # E: Any
 
 reveal_type(divmod(td, td))  # E: tuple[{int64}, timedelta64]
-reveal_type(divmod(AR_m, td))  # E: tuple[ndarray[Any, dtype[signedinteger[int64]]], ndarray[Any, dtype[timedelta64]]]
+reveal_type(divmod(AR_m, td))  # E: tuple[ndarray[Any, dtype[int64]], ndarray[Any, dtype[timedelta64]]]
 reveal_type(divmod(td, AR_m))  # E: tuple[ndarray[Any, dtype[int64]], ndarray[Any, dtype[timedelta64]]]
 
 # Bool
