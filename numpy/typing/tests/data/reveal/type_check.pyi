@@ -31,12 +31,12 @@ reveal_type(np.asfarray(AR_f8, dtype="i8"))  # E: ndarray[Any, dtype[floating[An
 
 reveal_type(np.real(RealObj()))  # E: slice
 reveal_type(np.real(AR_f8))  # E: ndarray[Any, dtype[{float64}]]
-reveal_type(np.real(AR_c16))  # E: ndarray[Any, dtype[{float64}]]
+reveal_type(np.real(AR_c16))  # E: ndarray[Any, dtype[{Float64}]]
 reveal_type(np.real(AR_LIKE_f))  # E: ndarray[Any, dtype[Any]]
 
 reveal_type(np.imag(ImagObj()))  # E: slice
 reveal_type(np.imag(AR_f8))  # E: ndarray[Any, dtype[{float64}]]
-reveal_type(np.imag(AR_c16))  # E: ndarray[Any, dtype[{float64}]]
+reveal_type(np.imag(AR_c16))  # E: ndarray[Any, dtype[{Float64}]]
 reveal_type(np.imag(AR_LIKE_f))  # E: ndarray[Any, dtype[Any]]
 
 reveal_type(np.iscomplex(f8))  # E: bool_

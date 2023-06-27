@@ -166,6 +166,18 @@ from numpy._typing._extended_precision import (
     complex192 as complex192,
     complex256 as complex256,
     complex512 as complex512,
+    Uint128 as Uint128,
+    Uint256 as Uint256,
+    Int128 as Int128,
+    Int256 as Int256,
+    Float80 as Float80,
+    Float96 as Float96,
+    Float128 as Float128,
+    Float256 as Float256,
+    Complex160 as Complex160,
+    Complex192 as Complex192,
+    Complex256 as Complex256,
+    Complex512 as Complex512,
 )
 
 from collections.abc import (
@@ -2887,6 +2899,18 @@ class signedinteger(integer[_NBit1_co]):
     __divmod__: _SignedIntDivMod[_NBit1_co]
     __rdivmod__: _SignedIntDivMod[_NBit1_co]
 
+Int8 = signedinteger[_8Bit]
+Int16 = signedinteger[_16Bit]
+Int32 = signedinteger[_32Bit]
+Int64 = signedinteger[_64Bit]
+
+Byte = signedinteger[_NBitByte]
+Short = signedinteger[_NBitShort]
+Intc = signedinteger[_NBitIntC]
+Intp = signedinteger[_NBitIntP]
+Int = signedinteger[_NBitInt]
+Longlong = signedinteger[_NBitLongLong]
+
 class int8(signedinteger[_8Bit]):
     ...
 
@@ -2988,6 +3012,18 @@ class unsignedinteger(integer[_NBit1_co]):
     __divmod__: _UnsignedIntDivMod[_NBit1_co]
     __rdivmod__: _UnsignedIntDivMod[_NBit1_co]
 
+Uint8 = unsignedinteger[_8Bit]
+Uint16 = unsignedinteger[_16Bit]
+Uint32 = unsignedinteger[_32Bit]
+Uint64 = unsignedinteger[_64Bit]
+
+Ubyte = unsignedinteger[_NBitByte]
+Ushort = unsignedinteger[_NBitShort]
+Uintc = unsignedinteger[_NBitIntC]
+Uintp = unsignedinteger[_NBitIntP]
+Uint = unsignedinteger[_NBitInt]
+Ulonglong = unsignedinteger[_NBitLongLong]
+
 class uint8(unsignedinteger[_8Bit]):
     ...
 
@@ -3061,6 +3097,17 @@ class floating(inexact[_NBit1_co]):
     __rmod__: _FloatMod[_NBit1_co]
     __divmod__: _FloatDivMod[_NBit1_co]
     __rdivmod__: _FloatDivMod[_NBit1_co]
+
+Float16 = floating[_16Bit]
+Float32 = floating[_32Bit]
+Float64 = floating[_64Bit]
+
+Half = floating[_NBitHalf]
+Single = floating[_NBitSingle]
+Double = floating[_NBitDouble]
+Float = floating[_NBitDouble]
+Longdouble = floating[_NBitLongDouble]
+Longfloat = floating[_NBitLongDouble]
 
 class float16(floating[_16Bit]):
     ...

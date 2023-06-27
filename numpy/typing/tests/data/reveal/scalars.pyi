@@ -11,11 +11,11 @@ U: np.str_
 S: np.bytes_
 V: np.void
 
-reveal_type(c8.real)  # E: {float32}
-reveal_type(c8.imag)  # E: {float32}
+reveal_type(c8.real)  # E: {Float32}
+reveal_type(c8.imag)  # E: {Float32}
 
-reveal_type(c8.real.real)  # E: {float32}
-reveal_type(c8.real.imag)  # E: {float32}
+reveal_type(c8.real.real)  # E: {Float32}
+reveal_type(c8.real.imag)  # E: {Float32}
 
 reveal_type(c8.itemsize)  # E: int
 reveal_type(c8.shape)  # E: tuple[]

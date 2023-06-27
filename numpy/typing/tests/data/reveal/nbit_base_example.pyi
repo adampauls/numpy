@@ -15,7 +15,7 @@ i4: np.int32
 f8: np.float64
 f4: np.float32
 
-reveal_type(add(f8, i8))  # E: {float64}
-reveal_type(add(f4, i8))  # E: {float64}
-reveal_type(add(f8, i4))  # E: {float64}
-reveal_type(add(f4, i4))  # E: {float32}
+reveal_type(add(f8, i8))  # E: {Float64}
+reveal_type(add(f4, i8))  # E: {Float64}
+reveal_type(add(f8, i4))  # E: {Float64}
+reveal_type(add(f4, i4))  # E: {Float32}

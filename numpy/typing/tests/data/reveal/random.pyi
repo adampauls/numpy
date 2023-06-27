@@ -41,7 +41,7 @@ reveal_type(pcg64_jumped)  # E: random._pcg64.PCG64
 reveal_type(pcg64_jumped3)  # E: random._pcg64.PCG64
 reveal_type(pcg64_adv)  # E: random._pcg64.PCG64
 reveal_type(pcg64_raw)  # E: int
-reveal_type(pcg64_raw_arr)  # E: ndarray[Any, dtype[unsignedinteger[typing._64Bit]]]
+reveal_type(pcg64_raw_arr)  # E: ndarray[Any, dtype[{UInt64}]]
 reveal_type(pcg64.lock)  # E: threading.Lock
 
 philox_jumped = philox.jumped()
