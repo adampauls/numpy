@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import pathlib
 import importlib.util
 import itertools
 import os
@@ -142,6 +143,7 @@ def test_fail(path: str) -> None:
 
     output_mypy = OUTPUT_MYPY
     assert path in output_mypy
+    print(f"xxx {output_mypy[path]}")
     for error_line in output_mypy[path]:
         error_line = _strip_filename(error_line).split("\n", 1)[0]
         match = re.match(
@@ -252,6 +254,7 @@ def _construct_format_dict() -> dict[str, str]:
         "uint256": "numpy.uint256",
         "UInt256": "numpy.unsignedinteger[numpy._typing._256Bit]",
         "int8": "numpy.int8",
+        "Int8": "numpy.signedinteger[numpy._typing._8Bit]",
         "int16": "numpy.int16",
         "Int16": "numpy.signedinteger[numpy._typing._16Bit]",
         "int32": "numpy.int32",
@@ -273,8 +276,11 @@ def _construct_format_dict() -> dict[str, str]:
         "float128": "numpy.float128",
         "Float128": "numpy.floating[numpy._typing._128Bit]",
         "float256": "numpy.float256",
+        "Float256": "numpy.floating[numpy._typing._256Bit]",
         "complex64": "numpy.complex64",
+        "Complex64": "numpy.complexfloating[numpy._typing._32Bit, numpy._typing._32Bit]",
         "complex128": "numpy.complex128",
+        "Complex128": "numpy.complexfloating[numpy._typing._64Bit, numpy._typing._64Bit]",
         "complex160": "numpy.complex160",
         "complex192": "numpy.complex192",
         "complex256": "numpy.complex256",

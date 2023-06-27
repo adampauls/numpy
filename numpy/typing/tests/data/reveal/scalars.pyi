@@ -30,8 +30,8 @@ reveal_type(c8.transpose())  # E: {complex64}
 
 reveal_type(c8.dtype)  # E: dtype[{complex64}]
 
-reveal_type(c8.real)  # E: {float32}
-reveal_type(c16.imag)  # E: {float64}
+reveal_type(c8.real)  # E: {Float32}
+reveal_type(c16.imag)  # E: {Float64}
 
 reveal_type(np.unicode_('foo'))  # E: str_
 
@@ -61,9 +61,9 @@ reveal_type(np.ulonglong())  # E: {ulonglong}
 reveal_type(np.half())  # E: {half}
 reveal_type(np.single())  # E: {single}
 reveal_type(np.double())  # E: {double}
-reveal_type(np.float_())  # E: {double}
+reveal_type(np.float_())  # E: float_
 reveal_type(np.longdouble())  # E: {longdouble}
-reveal_type(np.longfloat())  # E: {longdouble}
+reveal_type(np.longfloat())  # E: {longfloat}
 
 reveal_type(np.csingle())  # E: {csingle}
 reveal_type(np.singlecomplex())  # E: {csingle}
@@ -71,7 +71,7 @@ reveal_type(np.cdouble())  # E: {cdouble}
 reveal_type(np.complex_())  # E: {cdouble}
 reveal_type(np.cfloat())  # E: {cdouble}
 reveal_type(np.clongdouble())  # E: {clongdouble}
-reveal_type(np.clongfloat())  # E: {clongdouble}
+reveal_type(np.clongfloat())  # E: {clongfloat}
 reveal_type(np.longcomplex())  # E: {clongdouble}
 
 reveal_type(b.item())  # E: bool

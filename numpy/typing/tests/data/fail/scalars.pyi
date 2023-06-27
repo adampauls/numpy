@@ -6,7 +6,7 @@ f8: np.float64
 c8: np.complex64
 
 # Construction
-
+np.float32([3j])  # E: incompatible type
 np.float32(3j)  # E: incompatible type
 
 # Technically the following examples are valid NumPy code. But they

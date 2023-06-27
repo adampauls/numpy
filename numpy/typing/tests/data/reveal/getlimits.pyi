@@ -11,8 +11,8 @@ finfo_f8: np.finfo[np.float64]
 iinfo_i8: np.iinfo[np.int64]
 
 reveal_type(np.finfo(f))  # E: finfo[float_]
-reveal_type(np.finfo(f8))  # E: finfo[{float64}]
-reveal_type(np.finfo(c8))  # E: finfo[{float32}]
+reveal_type(np.finfo(f8))  # E: finfo[{Float64}]
+reveal_type(np.finfo(c8))  # E: finfo[{Float32}]
 reveal_type(np.finfo('f2'))  # E: finfo[floating[Any]]
 
 reveal_type(finfo_f8.dtype)  # E: dtype[{float64}]

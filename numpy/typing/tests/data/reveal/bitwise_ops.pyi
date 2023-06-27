@@ -17,9 +17,9 @@ AR.setflags(write=False)
 
 reveal_type(i8 << i8)  # E: {Int64}
 reveal_type(i8 >> i8)  # E: {Int64}
-reveal_type(i8 | i8)  # E: {int64}
-reveal_type(i8 ^ i8)  # E: {int64}
-reveal_type(i8 & i8)  # E: {int64}
+reveal_type(i8 | i8)  # E: {Int64}
+reveal_type(i8 ^ i8)  # E: {Int64}
+reveal_type(i8 & i8)  # E: {Int64}
 
 reveal_type(i8 << AR)  # E: Any
 reveal_type(i8 >> AR)  # E: Any
@@ -27,23 +27,17 @@ reveal_type(i8 | AR)  # E: Any
 reveal_type(i8 ^ AR)  # E: Any
 reveal_type(i8 & AR)  # E: Any
 
-reveal_type(i4 << i4)  # E: {int32}
-reveal_type(i4 >> i4)  # E: {int32}
-reveal_type(i4 | i4)  # E: {int32}
-reveal_type(i4 ^ i4)  # E: {int32}
-reveal_type(i4 & i4)  # E: {int32}
+reveal_type(i4 << i4)  # E: {Int32}
+reveal_type(i4 >> i4)  # E: {Int32}
+reveal_type(i4 | i4)  # E: {Int32}
+reveal_type(i4 ^ i4)  # E: {Int32}
+reveal_type(i4 & i4)  # E: {Int32}
 
-reveal_type(i8 << i4)  # E: {int64}
-reveal_type(i8 >> i4)  # E: {int64}
-reveal_type(i8 | i4)  # E: {int64}
-reveal_type(i8 ^ i4)  # E: {int64}
-reveal_type(i8 & i4)  # E: {int64}
-
-reveal_type(i8 << i)  # E: {int64}
-reveal_type(i8 >> i)  # E: {int64}
-reveal_type(i8 | i)  # E: {int64}
-reveal_type(i8 ^ i)  # E: {int64}
-reveal_type(i8 & i)  # E: {int64}
+reveal_type(i8 << i4)  # E: signedinteger[Union[_64Bit, _32Bit]]
+reveal_type(i8 >> i4)  # E: signedinteger[Union[_64Bit, _32Bit]]
+reveal_type(i8 | i4)  # E: signedinteger[Union[_64Bit, _32Bit]]
+reveal_type(i8 ^ i4)  # E: signedinteger[Union[_64Bit, _32Bit]]
+reveal_type(i8 & i4)  # E: signedinteger[Union[_64Bit, _32Bit]]
 
 reveal_type(i8 << b_)  # E: {int64}
 reveal_type(i8 >> b_)  # E: {int64}
@@ -51,17 +45,17 @@ reveal_type(i8 | b_)  # E: {int64}
 reveal_type(i8 ^ b_)  # E: {int64}
 reveal_type(i8 & b_)  # E: {int64}
 
-reveal_type(i8 << b)  # E: {int64}
-reveal_type(i8 >> b)  # E: {int64}
-reveal_type(i8 | b)  # E: {int64}
-reveal_type(i8 ^ b)  # E: {int64}
-reveal_type(i8 & b)  # E: {int64}
+reveal_type(i8 << b)  # E: {Int64}
+reveal_type(i8 >> b)  # E: {Int64}
+reveal_type(i8 | b)  # E: {Int64}
+reveal_type(i8 ^ b)  # E: {Int64}
+reveal_type(i8 & b)  # E: {Int64}
 
-reveal_type(u8 << u8)  # E: {uint64}
-reveal_type(u8 >> u8)  # E: {uint64}
-reveal_type(u8 | u8)  # E: {uint64}
-reveal_type(u8 ^ u8)  # E: {uint64}
-reveal_type(u8 & u8)  # E: {uint64}
+reveal_type(u8 << u8)  # E: {UInt64}
+reveal_type(u8 >> u8)  # E: {UInt64}
+reveal_type(u8 | u8)  # E: {UInt64}
+reveal_type(u8 ^ u8)  # E: {UInt64}
+reveal_type(u8 & u8)  # E: {UInt64}
 
 reveal_type(u8 << AR)  # E: Any
 reveal_type(u8 >> AR)  # E: Any
@@ -69,11 +63,11 @@ reveal_type(u8 | AR)  # E: Any
 reveal_type(u8 ^ AR)  # E: Any
 reveal_type(u8 & AR)  # E: Any
 
-reveal_type(u4 << u4)  # E: {uint32}
-reveal_type(u4 >> u4)  # E: {uint32}
-reveal_type(u4 | u4)  # E: {uint32}
-reveal_type(u4 ^ u4)  # E: {uint32}
-reveal_type(u4 & u4)  # E: {uint32}
+reveal_type(u4 << u4)  # E: {UInt32}
+reveal_type(u4 >> u4)  # E: {UInt32}
+reveal_type(u4 | u4)  # E: {UInt32}
+reveal_type(u4 ^ u4)  # E: {UInt32}
+reveal_type(u4 & u4)  # E: {UInt32}
 
 reveal_type(u4 << i4)  # E: signedinteger[Any]
 reveal_type(u4 >> i4)  # E: signedinteger[Any]
@@ -93,11 +87,11 @@ reveal_type(u8 | b_)  # E: {uint64}
 reveal_type(u8 ^ b_)  # E: {uint64}
 reveal_type(u8 & b_)  # E: {uint64}
 
-reveal_type(u8 << b)  # E: {uint64}
-reveal_type(u8 >> b)  # E: {uint64}
-reveal_type(u8 | b)  # E: {uint64}
-reveal_type(u8 ^ b)  # E: {uint64}
-reveal_type(u8 & b)  # E: {uint64}
+reveal_type(u8 << b)  # E: {UInt64}
+reveal_type(u8 >> b)  # E: {UInt64}
+reveal_type(u8 | b)  # E: {UInt64}
+reveal_type(u8 ^ b)  # E: {UInt64}
+reveal_type(u8 & b)  # E: {UInt64}
 
 reveal_type(b_ << b_)  # E: {int8}
 reveal_type(b_ >> b_)  # E: {int8}

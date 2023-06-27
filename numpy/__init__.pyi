@@ -3151,7 +3151,7 @@ class complexfloating(inexact[_NBit1_co], Generic[_NBit1_co, _NBit2_co]):
     @property
     def real(self) -> floating[_NBit1_co]: ...  # type: ignore[override]
     @property
-    def imag(self) -> floating[_NBit2]: ...  # type: ignore[override]
+    def imag(self) -> floating[_NBit2_co]: ...  # type: ignore[override]
     def __abs__(self) -> floating[_NBit1_co]: ...  # type: ignore[override]
     def __getnewargs__(self: complex128) -> tuple[float, float]: ...
     # NOTE: Deprecated

@@ -55,7 +55,7 @@ reveal_type(np.s_[0:1, None:3])  # E: tuple[builtins.slice, builtins.slice]
 reveal_type(np.s_[0, 0:1, ..., [0, 1, 3]])  # E: tuple[Literal[0]?, builtins.slice, builtins.ellipsis, builtins.list[builtins.int]]
 
 reveal_type(np.ix_(AR_LIKE_b))  # E: tuple[ndarray[Any, dtype[bool_]], ...]
-reveal_type(np.ix_(AR_LIKE_i, AR_LIKE_f))  # E: tuple[ndarray[Any, dtype[{double}]], ...]
+reveal_type(np.ix_(AR_LIKE_i, AR_LIKE_f))  # E: tuple[ndarray[Any, dtype[float_]], ...]
 reveal_type(np.ix_(AR_i8))  # E: tuple[ndarray[Any, dtype[{int64}]], ...]
 
 reveal_type(np.fill_diagonal(AR_i8, 5))  # E: None

@@ -52,5 +52,5 @@ Complex256 = np.complexfloating[_128Bit, _128Bit]
 class complex256(np.complexfloating[_128Bit, _128Bit]):
     ...
 Complex512 = np.complexfloating[_256Bit, _256Bit]
-class complex5126(np.complexfloating[_256Bit, _256Bit]):
+class complex512(np.complexfloating[_256Bit, _256Bit]):
     ...

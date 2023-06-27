@@ -94,7 +94,6 @@ run_test()
 
   if [ -n "$USE_DEBUG" ]; then
     export PYTHONPATH=$PWD
-    export MYPYPATH=$PWD
   fi
 
   if [ -n "$RUN_COVERAGE" ]; then
